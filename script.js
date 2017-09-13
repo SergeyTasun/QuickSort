@@ -3,44 +3,44 @@ console.log(arr);
 
 //функция замены, просто меняет местами i-й элемент массива и j-й элемент массива.
 function permutationAar (i, j){
-            var temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+   var temp = arr[i];
+   arr[i] = arr[j];
+   arr[j] = temp;
 }
 
 //функция берет средний элемент и сортрует массив относительно этого елемента, возвращает индекс этого "среднего" элемента.
 function IndexGroupSort(arr, left, right) {
-var centr = arr[parseInt((left + right) / 2)];  // centr - опорный элемент; 
-do {
-   while(arr[left] < centr) {
-      left++;
+   var centr = arr[parseInt((left + right) / 2)];  // centr - опорный элемент; 
+   do {
+      while(arr[left] < centr) {
+         left++;
+      } 
+       while(arr[right] > centr) {
+         right--;
+      }
+      if(left <= right) {         
+         permutationAar(left, right);
+         left++; 
+         right--;
+      }
    } 
-   while(arr[right] > centr) {
-      right--;
-   }
-   if(left <= right) {         
-      permutationAar(left, right);
-      left++; 
-      right--;
-   }
-} 
-while(left < right);
-return left; 
+   while(left < right);
+   return left; 
 }
 
 //функция быстрой сортировки, рекурсивная.
 function quickSort(arr, left, right) {
-    var index;
-    if (arr.length > 1) {
-        index = IndexGroupSort(arr, left, right);
-        if (left < index - 1) {
-            quickSort(arr, left, index - 1);
-        }
-        if (index < right) {
-            quickSort(arr, index, right);
-        }
-    }
-    return arr;
+   var index;
+   if (arr.length > 1) {
+      index = IndexGroupSort(arr, left, right);
+      if (left < index - 1) {
+         quickSort(arr, left, index - 1);
+      }
+      if (index < right) {
+         quickSort(arr, index, right);
+      }
+   }
+   return arr;
 }
 
 // first call
