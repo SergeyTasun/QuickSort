@@ -9,25 +9,23 @@ function permutationAar (i, j){
 }
 
 //функция берет средний элемент и сортрует массив относительно этого елемента, возвращает индекс этого "среднего" элемента.
- function IndexGroupSort(arr, left, right) {
- var centr = arr[parseInt((left + right) / 2)];  // centr - опорный элемент; 
- do {
-   while(arr[left] < centr)
-     {
+function IndexGroupSort(arr, left, right) {
+var centr = arr[parseInt((left + right) / 2)];  // centr - опорный элемент; 
+do {
+   while(arr[left] < centr) {
       left++;
-     } 
-   while(arr[right] > centr)
-     {
+   } 
+   while(arr[right] > centr) {
       right--;
-     }
-   if(left <= right){         
+   }
+   if(left <= right) {         
       permutationAar(left, right);
       left++; 
       right--;
    }
- } 
- while(left < right);
- return left; 
+} 
+while(left < right);
+return left; 
 }
 
 //функция быстрой сортировки, рекурсивная.
